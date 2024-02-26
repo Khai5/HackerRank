@@ -1,0 +1,21 @@
+#Print the name(s) of any student(s) having the second lowest grade in. If there are multiple students, order their names alphabetically and print each one on a new line.
+if __name__ == '__main__':
+    nest = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        nest.append([name, score])
+    nest.sort(key = lambda x:(x[1], x[0])) #sorts list by score asc, second priority on name
+    secscore = nest[1][1] #usually second lowest score
+
+    #in case nest[1][1] == nest[0][1]
+    i = 0
+    while secscore == nest[0][1]:
+        secscore = nest[i][1]
+        i += 1
+
+    #print names with second lowest grade
+    for y in range(len(nest)):
+        for z in range(2):
+            if nest[y][z] == secscore:
+               print(nest[y][0])
