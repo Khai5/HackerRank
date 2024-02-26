@@ -7,10 +7,5 @@ if __name__ == '__main__':
         scores = list(map(float, line))
         student_marks[name] = scores
     query_name = input()
-   
-    totalGrade = 0
-    
-    for y in range(len(scores)):
-        totalGrade += (student_marks.get(query_name)[y])
-    average = totalGrade / len(scores)
-    print("%.2f" % average)
+    grade = student_marks[query_name]
+    print("%.2f" % (sum(grade)/len(grade)))
